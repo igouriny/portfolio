@@ -1,0 +1,248 @@
+@font-face {
+  font-family: SF Pro;
+  src: url(.assets/fonts/SF-Pro.ttf);
+}
+
+body{
+  font-family: SF Pro, Arial, sans-serif;
+  background-color: rgb(243, 234, 251);
+}
+
+
+.title{
+  margin-bottom: 0;
+  font-size: 28px;
+  font-family: SF Pro, Arial, sans-serif;
+  font-weight:800;
+}
+
+.subtitle{
+  margin-top: 2px;
+  font-size: 22px;
+  font-family: SF Pro, Arial, sans-serif;
+  text-transform:uppercase;
+  font-weight: 300;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    width: 1170px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+.box1 {
+    /* grid-area: sidebar; */
+    grid-column: 1 / 2; /* Takes the first column */
+    grid-row: 1 / 2; /* Takes the first row */
+  }
+
+
+  
+.box2 {
+    /* grid-area: main; */
+    grid-column: 2 / 3; /* Takes the second column */
+    grid-row: 1 / 2; /* Takes the first row */
+  }
+  
+  
+.box3 {
+    grid-area: footer;
+  }
+
+
+.nav{
+    margin-left: 20px;
+}
+
+header{
+  max-width: 97%;
+  flex-direction: column;
+  align-items: flex-start;
+  display: inline-block;
+}
+
+
+.profile{
+    max-width: inherit;
+    margin-bottom: 0;
+    display: block;
+}
+
+.body{
+  text-align: left;
+  width: 75%;
+  background-color: white;
+  color: #26292e;
+  padding : 25px 40px;
+}
+
+.main-nav{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    max-width: inherit;
+    background-color: #33373d;
+    list-style: none;
+    text-align: right;
+    color: #85878b;
+    text-transform:uppercase;
+
+}
+
+
+.about, .academic, .contact{
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.about:before, .academic:before, .contact:before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #6720d1;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.about:hover, .about:focus, .about:active, .academic:hover, .academic:focus, .academic:active, 
+.contact:hover, .contact:focus, .contact:active{
+  color:white;
+}
+
+.about:hover:before, .about:focus:before, .about:active:before, .academic:hover:before, .academic:focus:before, .academic:active:before
+, .contact:hover:before, .contact:focus:before, .contact:active:before{
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+
+
+
+
+.about, .academic, .contact{
+  padding: 15px 25px;
+  border-bottom: 1px solid #26292e;
+  font-size: 14px;
+
+
+  
+}
+
+.wrapper{
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.bottom-header{
+  background-color: white;
+  max-width: inherit;
+  text-align: center;
+  
+}
+
+.bottom-nav{
+  margin: 0;
+  padding:0;
+}
+
+.bottom-nav-list{
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px; 
+  
+}
+
+.github{
+  height: 35px;
+  width: 35px;
+  padding: 5px 5px 5px;
+}
+
+.linkedin{
+  height: 35px;
+  width: 35px;
+  padding: 5px 5px 5px;
+}
+
+hr{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border: 1px solid #eee
+}
+
+.right-about .left-about{
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.left-about{
+  /* width: 50%; */
+  text-align: left;
+}
+
+.right-about{
+  /* width: 50%; */
+  text-align: right;
+}
+
+.sub-content{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* styles.css */
+
+.body-content {
+  transition: opacity 0.1s ease;
+  opacity: 1;
+}
+
+.body-content.hidden {
+  opacity: 0;
+}
+
+.study-title{
+  margin-bottom: 2px;
+}
+
+.study-subtitle{
+  margin: 2px 0px 5px 0px;
+  font-weight: normal;
+}
+
+.break{
+  margin-top: 5px;
+}
+
+
+
+
