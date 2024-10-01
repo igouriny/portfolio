@@ -26,7 +26,7 @@ function Navbar({ setActiveSection }) {
           </li>
           <li className="bottom-nav-list">
             <a href="https://www.linkedin.com/in/ilyass-gouriny-7463b2235/" target="_blank">
-              <img src={linkedin} alt="linkedin" className="linkedin" />
+              <img src={linkedin} alt="linkedin" className="linkedin"/>
             </a>
           </li>
         </ul>
