@@ -5,7 +5,7 @@
 
 body{
   font-family: SF Pro, Arial, sans-serif;
-  background-color: rgb(243, 234, 251);
+  background-color: #ebf5fb;
 }
 
 
@@ -115,7 +115,7 @@ header{
   left: 0;
   right: 0;
   bottom: 0;
-  background: #6720d1;
+  background: #0D6EFD;
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -webkit-transform-origin: 50% 100%;
