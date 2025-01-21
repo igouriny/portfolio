@@ -3,7 +3,7 @@
 Welcome to the repository for my personal portfolio! This repo contains the source code and assets used to build and maintain my portfolio website.
 
 ## 🛠️ Technologies Used
-- **Frontend:** React, Vue, Javascript, CSS
+- **Frontend:** React, Vue, Javascript, HTML, CSS
 - **Backend:** Java Spring Boot
 - **Database:** MongoDB
 - **Deployment:** Docker, Digital Ocean
