@@ -1,6 +1,6 @@
 # 🚀 My Portfolio Repository
 
-Welcome to the repository for my personal portfolio! This repo contains the source code and assets used to build and maintain my portfolio website.
+Welcome to the repository for my personal portfolio! This repo contains the source code and assets used to build and maintain my portfolio web application.
 
 ## 🛠️ Technologies Used
 - **Frontend:** React, Vue, Javascript, HTML, CSS
