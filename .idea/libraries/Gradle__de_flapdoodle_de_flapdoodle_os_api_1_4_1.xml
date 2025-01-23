@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: de.flapdoodle:de.flapdoodle.os-api:1.4.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.flapdoodle/de.flapdoodle.os-api/1.4.1/522448c1ad30c77833a3986b86f9a769f82b0098/de.flapdoodle.os-api-1.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.flapdoodle/de.flapdoodle.os-api/1.4.1/eaf82bf91271c71dc8612096f687d127bf2c09d7/de.flapdoodle.os-api-1.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
