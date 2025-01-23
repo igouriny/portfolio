@@ -17,4 +17,5 @@ Welcome to the repository for my personal portfolio! This repo contains the sour
 ---
 
 Thanks for visiting my portfolio repository! Feel free to explore and reach out if you have any questions.
+
 This project is a WIP, the portfolio can be visited at: ...
