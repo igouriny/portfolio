@@ -13,6 +13,9 @@ function Navbar({ setActiveSection }) {
         <li className="academic" onClick={() => setActiveSection('academic')}>
           Academic
         </li>
+        <li className="professional" onClick={() => setActiveSection('professional')}>
+          Professional
+        </li>
         <li className="contact" onClick={() => setActiveSection('contact')}>
           Contact
         </li>

@@ -1,0 +1,90 @@
+@font-face {
+    font-family: SF Pro;
+    src: url(../assets/fonts/SF-Pro.ttf);
+  }
+  
+  body {
+    font-family: SF Pro, Arial, sans-serif;
+    background-color: #ebf5fb;
+  }
+  
+  .subtitle {
+    margin-top: 2px;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  
+  .break {
+    margin-top: 5px;
+  }
+  
+  .study-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .academic-details {
+    flex-grow: 1;
+  }
+  
+  .study-title {
+    font-weight: bold;
+  }
+  
+  .study-subtitle {
+    margin: 2px 0px 5px 0px;
+    font-weight: normal;
+  }
+  
+  .study-description {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .delete-button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .delete-button:hover {
+    color: darkred;
+  }
+  
+  .academic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-input, .form-textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .submit-button {
+    padding: 10px;
+    border: none;
+    background-color: #0D6EFD;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -3,6 +3,7 @@ import About from "./About.jsx";
 import Academic from "./Academic.jsx";
 import Contact from "./Contact.jsx";
 import Navbar from "./Navbar.jsx";
+import Professional from "./Professional.jsx";
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -24,6 +25,8 @@ function App() {
         return <Academic />;
       case 'contact':
         return <Contact />;
+      case 'professional':
+        return <Professional/>;
       default:
         return <About />;
     }
