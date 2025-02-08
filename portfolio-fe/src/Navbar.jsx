@@ -19,6 +19,9 @@ function Navbar({ setActiveSection }) {
         <li className="contact" onClick={() => setActiveSection('contact')}>
           Contact
         </li>
+        <li className="about" onClick={() => setActiveSection('testimonials')}>
+          Testimonials
+        </li>
       </ul>
       <div className="bottom-header">
         <ul className="bottom-nav">
