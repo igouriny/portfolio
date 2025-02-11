@@ -2,7 +2,7 @@ import React from 'react';
 import profilePic from "./assets/profile_placeholder.png";
 import github from "./assets/github.png";
 import linkedin from "./assets/linkedin.png";
-
+import GoogleTranslateDropdown from './googleTranslate/GoogleTranslateLoader';
 function Navbar({ setActiveSection }) {
   return (
     <header>
@@ -23,6 +23,10 @@ function Navbar({ setActiveSection }) {
         <li className="about" onClick={() => setActiveSection('testimonials')}>
           Testimonials
         </li>
+        <li className="language">
+            <GoogleTranslateDropdown />
+        </li>
+
       </ul>
       <div className="bottom-header">
         <ul className="bottom-nav">
