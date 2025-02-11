@@ -1,3 +1,4 @@
+import React from 'react';
 import profilePic from "./assets/profile_placeholder.png";
 import github from "./assets/github.png";
 import linkedin from "./assets/linkedin.png";
@@ -26,12 +27,12 @@ function Navbar({ setActiveSection }) {
       <div className="bottom-header">
         <ul className="bottom-nav">
           <li className="bottom-nav-list">
-            <a href="https://github.com/igouriny" target="_blank">
+            <a href="https://github.com/igouriny" target="_blank" rel="noopener noreferrer">
               <img src={github} alt="github" className="github" />
             </a>
           </li>
           <li className="bottom-nav-list">
-            <a href="https://linkedin.com/in/ilyass-gouriny" target="_blank">
+            <a href="https://linkedin.com/in/ilyass-gouriny" target="_blank" rel="noopener noreferrer">
               <img src={linkedin} alt="linkedin" className="linkedin"/>
             </a>
           </li>

@@ -1,0 +1,28 @@
+.input-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* ✅ Fixed-Size Textarea */
+.fixed-text-area {
+    min-height: 120px;
+    max-height: 120px;
+    resize: none; /* ✅ Prevent user resizing */
+}

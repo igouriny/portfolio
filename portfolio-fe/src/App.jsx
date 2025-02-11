@@ -1,41 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import About from "./About.jsx";
 import Academic from "./Academic.jsx";
 import Contact from "./Contact.jsx";
-import Navbar from "./Navbar.jsx";
 import Professional from "./Professional.jsx";
-import AdminDashboard from "./AdminDashboard.jsx"; // Ensure this file exists
 import Testimonials from "./Testimonials.jsx";
-
-function Layout({ handleSectionChange, fade, renderSection }) {
-  const location = useLocation();
-  const isAdminPage = location.pathname === "/adminDashboard";
-
-  return (
-    <div className="wrapper">
-      <div className="container">
-        {/* Conditionally hide Navbar */}
-        {!isAdminPage && (
-          <nav className="box box1">
-            <Navbar setActiveSection={handleSectionChange} />
-          </nav>
-        )}
-        <Routes>
-          <Route path="/adminDashboard" element={<AdminDashboard />} />
-          <Route 
-            path="*" 
-            element={
-              <main className={`box box2 body-content ${fade ? 'hidden' : ''}`}>
-                {renderSection()}
-              </main>
-            } 
-          />
-        </Routes>
-      </div>
-    </div>
-  );
-}
+import Layout from "./Layout.jsx";
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');

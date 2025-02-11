@@ -1,101 +1,87 @@
 @font-face {
-  font-family: SF Pro;
-  src: url(.assets/fonts/SF-Pro.ttf);
+  font-family: 'SF Pro';
+  src: url('.assets/fonts/SF-Pro.ttf');
 }
 
-body{
-  font-family: SF Pro, Arial, sans-serif;
+body {
+  font-family: 'SF Pro', Arial, sans-serif;
   background-color: #ebf5fb;
 }
 
-
-.title{
+.title {
   margin-bottom: 0;
   font-size: 28px;
-  font-family: SF Pro, Arial, sans-serif;
-  font-weight:800;
+  font-family: 'SF Pro', Arial, sans-serif;
+  font-weight: 800;
 }
 
-.subtitle{
+.subtitle {
   margin-top: 2px;
   font-size: 22px;
-  font-family: SF Pro, Arial, sans-serif;
-  text-transform:uppercase;
+  font-family: 'SF Pro', Arial, sans-serif;
+  text-transform: uppercase;
   font-weight: 300;
 }
 
+/* Main container */
 .container {
-    display: grid;
-    height: 100vh;
-    width: 1170px;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto 1fr;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  
-.box1 {
-    /* grid-area: sidebar; */
-    grid-column: 1 / 2; /* Takes the first column */
-    grid-row: 1 / 2; /* Takes the first row */
-  }
-
-
-  
-.box2 {
-    /* grid-area: main; */
-    grid-column: 2 / 3; /* Takes the second column */
-    grid-row: 1 / 2; /* Takes the first row */
-  }
-  
-  
-.box3 {
-    grid-area: footer;
-  }
-
-
-.nav{
-    margin-left: 20px;
+  display: grid;
+  height: 100vh;
+  width: 1170px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-header{
+.box1 {
+  grid-column: 1 / 2; /* Takes the first column */
+  grid-row: 1 / 2;    /* Takes the first row */
+}
+
+.box2 {
+  grid-column: 2 / 3; /* Takes the second column */
+  grid-row: 1 / 2;    /* Takes the first row */
+}
+
+.box3 {
+  grid-area: footer;
+}
+
+.nav {
+  margin-left: 20px;
+}
+
+/* HEADER and NAV */
+header {
+  /* Desktop: header flows inline (if not within a fixed container) */
   max-width: 97%;
   flex-direction: column;
   align-items: flex-start;
   display: inline-block;
 }
 
-
-.profile{
-    max-width: inherit;
-    margin-bottom: 0;
-    display: block;
+.profile {
+  max-width: inherit;
+  margin-bottom: 0;
+  display: block;
 }
 
-.body{
-  text-align: left;
-  width: 75%;
-  background-color: white;
-  color: #26292e;
-  padding : 25px 40px;
+.main-nav {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  max-width: inherit;
+  background-color: #33373d;
+  list-style: none;
+  text-align: right;
+  color: #85878b;
+  text-transform: uppercase;
 }
 
-.main-nav{
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    max-width: inherit;
-    background-color: #33373d;
-    list-style: none;
-    text-align: right;
-    color: #85878b;
-    text-transform:uppercase;
-
-}
-
-
+/* Nav Link Animations */
 .about, .academic, .contact, .professional {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -151,72 +137,76 @@ header{
   font-size: 14px;
 }
 
-.wrapper{
+/* CONTENT STYLING */
+.body {
+  text-align: left;
+  width: 75%;
+  background-color: white;
+  color: #26292e;
+  padding: 25px 40px;
+}
+
+.wrapper {
   margin-top: 80px;
   margin-bottom: 80px;
 }
 
-.bottom-header{
+/* Footer in Header */
+.bottom-header {
   background-color: white;
   max-width: inherit;
   text-align: center;
-  
 }
 
-.bottom-nav{
+.bottom-nav {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
-.bottom-nav-list{
+.bottom-nav-list {
   display: inline-block;
   padding-top: 20px;
   padding-bottom: 20px; 
-  
 }
 
-.github{
+.github {
   height: 35px;
   width: 35px;
-  padding: 5px 5px 5px;
+  padding: 5px;
 }
 
-.linkedin{
+.linkedin {
   height: 35px;
   width: 35px;
-  padding: 5px 5px 5px;
+  padding: 5px;
 }
 
-hr{
+hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border: 1px solid #eee
+  border: 1px solid #eee;
 }
 
-.right-about .left-about{
+.right-about .left-about {
   flex: 1;
   padding: 10px;
   box-sizing: border-box;
 }
 
-.left-about{
-  /* width: 50%; */
+.left-about {
   text-align: left;
 }
 
-.right-about{
-  /* width: 50%; */
+.right-about {
   text-align: right;
 }
 
-.sub-content{
+.sub-content {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
-
-/* styles.css */
 
 .body-content {
   transition: opacity 0.1s ease;
@@ -227,24 +217,18 @@ hr{
   opacity: 0;
 }
 
-.study-title{
+.study-title {
   margin-bottom: 2px;
 }
 
-.study-subtitle{
-  margin: 2px 0px 5px 0px;
+.study-subtitle {
+  margin: 2px 0 5px 0;
   font-weight: normal;
 }
 
-.study-subtitle{
-  margin: 2px 0px 5px 0px;
-  font-weight: normal;
-}
-
-.break{
+.break {
   margin-top: 5px;
 }
-
 
 .delete-button {
   background-color: transparent;
@@ -262,7 +246,6 @@ hr{
   color: darkred;
 }
 
-
 .cv-container {
   text-align: center;
   margin-top: 20px;
@@ -278,10 +261,10 @@ hr{
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #3a3a3a; /* Matches left panel grey */
+  background-color: #3a3a3a;
   color: white;
-  padding: 10px 16px; /* Smaller padding */
-  font-size: 14px; /* Smaller font */
+  padding: 10px 16px;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 6px;
   text-decoration: none;
@@ -289,10 +272,135 @@ hr{
 }
 
 .cv-button:hover {
-  background-color: #2c2c2c; /* Slightly darker on hover */
+  background-color: #2c2c2c;
 }
 
 .cv-button svg {
-  font-size: 16px; /* Adjust icon size */
+  font-size: 16px;
 }
 
+/* ========================================
+   Responsive Styles
+======================================== */
+
+/* For screens up to 1170px wide */
+@media (max-width: 1170px) {
+  .container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* For tablets and smaller devices (up to 768px wide) */
+@media (max-width: 768px) {
+  /* Convert header into a full–width flex container 
+     and preserve the natural (DOM) order: picture, nav items, footer */
+  header {
+    position: static;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  
+  /* Main nav styling (remains in DOM order with its animations) */
+  .main-nav {
+    position: static;
+    width: 100%;
+    max-width: 1170px;
+    background-color: #33373d;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+  
+  /* Profile image: remove fixed height so width and height scale together.
+     object-fit: contain ensures the whole image is visible. */
+  header .profile {
+    width: 100%;
+    max-width: 1170px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  
+  /* Change the container layout from two columns to one column,
+     placing the header (box1) above the main content (box2)
+     and add a gap between them */
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 20px; /* Added gap between navbar and body */
+    height: auto;
+    width: 100%;
+    max-width: 1170px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  
+  .box1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .box2 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  /* Make the main content (body) the same width as the header (and navbar) */
+  .body {
+    width: 100%;
+    max-width: 1170px;
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .nav {
+    margin-left: 0;
+  }
+  
+  .sub-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .right-about,
+  .left-about {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .wrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+/* For small mobile devices (up to 480px wide) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+  }
+  
+  .cv-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .about, .academic, .contact, .professional {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}
