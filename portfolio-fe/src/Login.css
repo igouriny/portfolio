@@ -1,0 +1,83 @@
+/* Reset and basic full-height */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* Wrapper that centers the login form vertically and horizontally */
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  /* Styling for the login form card */
+  .login-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  /* Center the heading and add spacing */
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Grouping of each form field */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Label styling */
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  /* Input fields take full width and have a subtle border and rounded corners */
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Error messages are red and centered */
+  .error-message {
+    color: red;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* Specific styling for the login button */
+  .login-button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: #0d6efd;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: #0b5ed7;
+  }
+  
+.container.login-container {
+  /* These styles will apply only when an element has both classes */
+  grid-template-columns: 1fr 0fr;
+  grid-template-rows: auto 1fr;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+  

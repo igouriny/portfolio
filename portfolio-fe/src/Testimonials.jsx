@@ -46,7 +46,7 @@ function Testimonials() {
                     testimonials.map((testimonial, index) => (
                         <div key={index} className="study-heading">
                             <div>
-                                <h4 className="study-title">{testimonial.name}</h4>
+                                <h4 className="study-title notranslate">{testimonial.name}</h4>
                                 <h5 className="study-subtitle">{testimonial.affiliation}</h5>
                                 <p className="study-description">"{testimonial.comment}"</p>
                             </div>

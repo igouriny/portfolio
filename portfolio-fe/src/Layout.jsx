@@ -1,24 +1,30 @@
+// portfolio-fe/src/Layout.jsx
 import React from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
-import About from "./About.jsx";
-import Academic from "./Academic.jsx";
-import Contact from "./Contact.jsx";
 import Navbar from "./Navbar.jsx";
-import Professional from "./Professional.jsx";
-import AdminDashboard from "./AdminDashboard.jsx"; // Ensure this file exists
-import Testimonials from "./Testimonials.jsx";
+import AdminDashboard from "./AdminDashboard.jsx";
+import Login from "./Login";
+import ProtectedRoute from "./ProtectedRoute";
 
-function Layout({ handleSectionChange, fade, renderSection }) {
+function Layout({ handleSectionChange, fade, renderSection, user, setUser }) {
   const location = useLocation();
   const isAdminPage = location.pathname === "/adminDashboard";
+  const isLoginPage = location.pathname === "/login";
 
   return (
     <div className="wrapper">
-      <div className="container">
-        {/* Only show Navbar if not on the admin page */}
-        {!isAdminPage && <Navbar setActiveSection={handleSectionChange} />}
+      <div className={isLoginPage ? "login-container" : "container"}>
+        {(!isAdminPage && !isLoginPage) && <Navbar setActiveSection={handleSectionChange} />}
         <Routes>
-          <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route
+            path="/adminDashboard"
+            element={
+              <ProtectedRoute user={user}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route 
             path="*" 
             element={

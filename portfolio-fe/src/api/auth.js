@@ -1,23 +1,4 @@
-const API_BASE_URL = "http://localhost:8080/api/v1";  // Adjust the URL based on your backend setup
-
-export const registerUser = async (username, password) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Registration failed. Username may already be taken.");
-    }
-
-    return response.json();
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+const API_BASE_URL = "http://localhost:8080/api/v1";
 
 export const loginUser = async (username, password) => {
   try {
@@ -28,17 +9,36 @@ export const loginUser = async (username, password) => {
     });
 
     if (response.ok) {
-      localStorage.setItem("user", JSON.stringify({ username }));
-      return response.json();
+      const data = await response.json();
+      // Store the token in localStorage
+      localStorage.setItem("token", data.token);
+      // Store additional user info, such as username and role
+      localStorage.setItem("user", JSON.stringify({ username: data.username, role: data.role }));
+      return data;
     } else {
-      throw new Error("Invalid credentials");
+      const errorText = await response.text();
+      throw new Error(errorText || "Invalid credentials");
     }
   } catch (error) {
-    console.error(error);
+    console.error("Login error:", error);
     throw error;
   }
 };
 
-export const logoutUser = () => {
-  localStorage.removeItem("user");
+
+export const logoutUser = async () => {
+  try {
+    // Optionally, call your backend logout endpoint
+    // (It might be used to invalidate tokens or simply log the event.)
+    await fetch(`${API_BASE_URL}/logout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Logout endpoint error:", error);
+    // Even if the backend call fails, proceed to clear client-side state.
+  } finally {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  }
 };

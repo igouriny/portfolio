@@ -21,7 +21,7 @@ function Academic() {
                 {academics.map((academic, index) => (
                     <div key={index} className='study-heading'>
                         <div>
-                            <h4 className='study-title'>{academic.title}</h4>
+                            <h4 className='study-title notranslate' >{academic.title}</h4>
                             <h5 className='study-subtitle'>{academic.years}</h5>
                             <p className='study-description'>{academic.description}</p>
                         </div>

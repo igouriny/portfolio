@@ -20,7 +20,7 @@ function About() {
 
     return (
         <div className="body">
-            <h1 className="title">{aboutData.name}</h1>
+            <h1 className="title" translate="no">{aboutData.name}</h1>
             <h3 className="subtitle">{aboutData.subtitle}</h3>
             <div className="content">{aboutData.content}</div>
             <hr />

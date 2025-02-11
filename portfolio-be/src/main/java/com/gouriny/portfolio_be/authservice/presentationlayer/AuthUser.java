@@ -1,4 +1,5 @@
 package com.gouriny.portfolio_be.authservice.presentationlayer;
+
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -11,8 +12,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class AuthUser {
     @Id
     private String id;
+
     @Indexed
     private String username;
+
     private String password;
+
     private boolean active;
+
+    // New field for role – e.g., "USER" or "ADMIN"
+    private String role;
 }

@@ -14,20 +14,24 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class AuthUserDetailsService implements UserDetailsService {
-
     private final AuthUserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<AuthUser> authUser = userRepository.findByUsername(username.toLowerCase());
-        if (!authUser.isPresent()) {
+        Optional<AuthUser> authUserOpt = userRepository.findByUsername(username.toLowerCase());
+        if (!authUserOpt.isPresent()) {
             throw new UsernameNotFoundException(username);
         } else {
+            AuthUser authUser = authUserOpt.get();
             return User.builder()
-                    .username(authUser.get().getUsername())
-                    .password(authUser.get().getPassword())
-                    .disabled(!authUser.get().isActive())
+                    .username(authUser.getUsername())
+                    .password(authUser.getPassword())
+                    .disabled(!authUser.isActive())
+                    // Include roles (this will automatically add the "ROLE_" prefix)
+                    .roles(authUser.getRole() != null ? authUser.getRole() : "USER")
                     .build();
         }
     }
+
 }
+
