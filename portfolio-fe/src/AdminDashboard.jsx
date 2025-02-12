@@ -24,6 +24,16 @@ function AdminDashboard() {
         description: ""
     });
 
+        // ***** NEW: State variables for Projects *****
+    const [projects, setProjects] = useState([]);
+    const [editProject, setEditProject] = useState(null);
+    const [newProject, setNewProject] = useState({
+        title: "",
+        description: "",
+        technologiesUsed: "",
+        projectUrl: ""
+    });
+
     // New state variables for testimonials
     const [pendingTestimonials, setPendingTestimonials] = useState([]);
     const [approvedTestimonials, setApprovedTestimonials] = useState([]);
@@ -48,6 +58,13 @@ function AdminDashboard() {
             .then(response => setAboutData(response.data))
             .catch(error => console.error("Error fetching About data:", error));
     }, [aboutId]);
+
+    //Fetch projects data
+    useEffect(() => {
+      axiosInstance.get("/projects")
+          .then(response => setProjects(response.data))
+          .catch(error => console.error("Error fetching projects:", error));
+  }, []);
 
     // Fetch Pending Testimonials
     useEffect(() => {
@@ -82,6 +99,15 @@ function AdminDashboard() {
             })
             .catch(error => console.error("Error updating About page:", error));
     };
+
+    const handleEditProjectSubmit = (id) => {
+      axiosInstance.put(`/projects/${id}`, editProject)
+          .then(response => {
+              setProjects(projects.map(project => (project.id === id ? response.data : project)));
+              setEditProject(null);
+          })
+          .catch(error => console.error("Error updating project record:", error));
+  };
 
     // Enable Edit Mode for Academics
     const enableEditAcademic = (academic) => {
@@ -138,6 +164,20 @@ function AdminDashboard() {
             .catch(error => console.error("Error adding academic record:", error));
     };
 
+    const handleNewProjectSubmit = (e) => {
+      e.preventDefault();
+      axiosInstance.post("/projects", newProject)
+          .then(response => {
+              setProjects([...projects, response.data]);
+              setNewProject({
+                  title: "",
+                  description: "",
+                  technologiesUsed: "",
+                  projectUrl: ""
+              });
+          })
+          .catch(error => console.error("Error adding project record:", error));
+  };
     // Add New Professional Record
     const handleNewProfessionalSubmit = (e) => {
         e.preventDefault();
@@ -167,6 +207,12 @@ function AdminDashboard() {
             .catch(error => console.error("Error deleting professional record:", error));
     };
 
+    const handleDeleteProject = (id) => {
+      axiosInstance.delete(`/projects/${id}`)
+          .then(() => setProjects(projects.filter(project => project.id !== id)))
+          .catch(error => console.error("Error deleting project record:", error));
+  };
+
     // Approve Testimonial
     const handleApproveTestimonial = (id) => {
         axiosInstance.put(`/testimonials/${id}/approve`)
@@ -185,6 +231,14 @@ function AdminDashboard() {
                 setPendingTestimonials(pendingTestimonials.filter(testimonial => testimonial.id !== id));
             })
             .catch(error => console.error("Error rejecting testimonial:", error));
+    };
+
+    const handleDeleteTestimonial = (id) => {
+        axiosInstance.delete(`/testimonials/${id}/delete-approved`)
+            .then(() => {
+                setApprovedTestimonials(approvedTestimonials.filter(testimonial => testimonial.id !== id));
+            })
+            .catch(error => console.error("Error deleting approved testimonial:", error));
     };
 
     return (
@@ -369,13 +423,14 @@ function AdminDashboard() {
                                         <div className="testimonial-item">
                                             <strong>{testimonial.name}</strong> - {testimonial.affiliation}
                                             <p>{testimonial.comment}</p>
+                                            <button onClick={() => handleDeleteTestimonial(testimonial.id)}>Delete</button>
                                         </div>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>  
 
                 {/* Forms for Adding New Records */}
                 <div className="records-container">
@@ -435,6 +490,103 @@ function AdminDashboard() {
                                 onChange={(e) => setNewProfessional({ ...newProfessional, description: e.target.value })}
                                 required
                             ></textarea>
+                            <button type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+
+                                {/* ***** NEW: Projects Section ***** */}
+                                <div className="records-container">
+                    {/* Projects Management Section */}
+                    <div className="existing-records">
+                        <h2 className="section-title">Manage Project Records</h2>
+                        <ul>
+                            {projects.map((project) => (
+                                <li key={project.id}>
+                                    {editProject && editProject.id === project.id ? (
+                                        <div className="edit-form">
+                                            <input
+                                                type="text"
+                                                name="title"
+                                                value={editProject.title}
+                                                onChange={(e) => setEditProject({ ...editProject, title: e.target.value })}
+                                                placeholder="Title"
+                                            />
+                                            <textarea
+                                                name="description"
+                                                value={editProject.description}
+                                                onChange={(e) => setEditProject({ ...editProject, description: e.target.value })}
+                                                placeholder="Description"
+                                            ></textarea>
+                                            <input
+                                                type="text"
+                                                name="technologiesUsed"
+                                                value={editProject.technologiesUsed}
+                                                onChange={(e) => setEditProject({ ...editProject, technologiesUsed: e.target.value })}
+                                                placeholder="Technologies Used"
+                                            />
+                                            <input
+                                                type="text"
+                                                name="projectUrl"
+                                                value={editProject.projectUrl}
+                                                onChange={(e) => setEditProject({ ...editProject, projectUrl: e.target.value })}
+                                                placeholder="Project URL"
+                                            />
+                                            <button onClick={() => handleEditProjectSubmit(project.id)}>Save</button>
+                                            <button onClick={() => setEditProject(null)}>Cancel</button>
+                                        </div>
+                                    ) : (
+                                        <div className="display-record">
+                                            <span>
+                                                {project.title} - {project.description} - {project.technologiesUsed} - {project.projectUrl}
+                                            </span>
+                                            <button onClick={() => setEditProject({ ...project })} className="edit-button">
+                                                <FaWrench />
+                                            </button>
+                                            <button onClick={() => handleDeleteProject(project.id)} className="delete-button">
+                                                X
+                                            </button>
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    {/* New Project Form */}
+                    <div className="new-record-form">
+                        <h2 className="section-title">Add New Project Record</h2>
+                        <form onSubmit={handleNewProjectSubmit}>
+                            <input
+                                type="text"
+                                name="title"
+                                placeholder="Title"
+                                value={newProject.title}
+                                onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
+                                required
+                            />
+                            <textarea
+                                name="description"
+                                placeholder="Description"
+                                value={newProject.description}
+                                onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
+                                required
+                            ></textarea>
+                            <input
+                                type="text"
+                                name="technologiesUsed"
+                                placeholder="Technologies Used"
+                                value={newProject.technologiesUsed}
+                                onChange={(e) => setNewProject({ ...newProject, technologiesUsed: e.target.value })}
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="projectUrl"
+                                placeholder="Project URL"
+                                value={newProject.projectUrl}
+                                onChange={(e) => setNewProject({ ...newProject, projectUrl: e.target.value })}
+                                required
+                            />
                             <button type="submit">Add</button>
                         </form>
                     </div>

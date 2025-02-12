@@ -43,5 +43,11 @@ public class TestimonialController {
     public void rejectTestimonial(@PathVariable String id) {
         testimonialService.rejectTestimonial(id);
     }
+
+    @DeleteMapping("/{id}/delete-approved")
+    public void deleteApprovedTestimonial(@PathVariable String id) {
+        testimonialService.deleteApprovedTestimonial(id);
+    }
+
 }
 

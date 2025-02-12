@@ -195,18 +195,20 @@ hr {
 }
 
 .left-about {
-  text-align: left;
+  text-align: center;
 }
 
+
 .right-about {
-  text-align: right;
+  text-align: center;
 }
 
 .sub-content {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  gap: 20px; /* Optional: space between the stacked items */
 }
+
 
 .body-content {
   transition: opacity 0.1s ease;

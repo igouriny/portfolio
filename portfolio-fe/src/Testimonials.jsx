@@ -1,10 +1,12 @@
+// portfolio-fe/src/Testimonials.jsx
 import { useEffect, useState } from "react";
 import axiosInstance from "../src/api/axiosInstance";
-import "./Testimonials.css"
+import "./Testimonials.css";
 
 function Testimonials() {
     const [testimonials, setTestimonials] = useState([]);
     const [form, setForm] = useState({ name: "", affiliation: "", comment: "" });
+    const [message, setMessage] = useState(""); // State to store success message
 
     useEffect(() => {
         axiosInstance.get("/testimonials/approved")
@@ -25,8 +27,10 @@ function Testimonials() {
         if (!form.name || !form.affiliation || !form.comment) return;
         try {
             await axiosInstance.post("/testimonials", form);
-            alert("Testimonial submitted for approval!");
+            setMessage("Your testimonial has been submitted for approval.");
             setForm({ name: "", affiliation: "", comment: "" }); // Clear form
+            // Clear the message after 3 seconds
+            setTimeout(() => setMessage(""), 3000);
         } catch (error) {
             console.error("Error submitting testimonial:", error);
         }
@@ -54,10 +58,12 @@ function Testimonials() {
                     ))
                 )}
 
-                {/* Form to submit a new testimonial */}
                 <br />
-                <hr className='break' />
+                <hr className="break" />
                 <h4 className="subtitle">ADD YOUR TESTIMONIAL</h4>
+
+                {/* Display success message */}
+                {message && <p className="success-message">{message}</p>}
 
                 <div className="form-container">
                     <input
@@ -75,7 +81,7 @@ function Testimonials() {
                         onChange={(e) => setForm({ ...form, affiliation: e.target.value })}
                     />
                     <textarea
-                        className="input-field .fixed-text-area"
+                        className="input-field fixed-text-area"
                         placeholder="Your Testimonial"
                         value={form.comment}
                         onChange={(e) => setForm({ ...form, comment: e.target.value })}

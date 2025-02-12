@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePic from "./assets/profile_placeholder.png";
+import profilePic from "./assets/profile.jpeg";
 import github from "./assets/github.png";
 import linkedin from "./assets/linkedin.png";
 import GoogleTranslateDropdown from './googleTranslate/GoogleTranslateLoader';

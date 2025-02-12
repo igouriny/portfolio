@@ -49,5 +49,15 @@ public class TestimonialServiceImpl implements TestimonialService {
     public void rejectTestimonial(String id) {
         testimonialRepository.deleteById(id);
     }
+
+    @Override
+    public void deleteApprovedTestimonial(String id) {
+        Optional<Testimonial> optionalTestimonial = testimonialRepository.findById(id);
+        if (optionalTestimonial.isPresent() && "APPROVED".equals(optionalTestimonial.get().getStatus())) {
+            testimonialRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Approved testimonial not found with id: " + id);
+        }
+    }
 }
 

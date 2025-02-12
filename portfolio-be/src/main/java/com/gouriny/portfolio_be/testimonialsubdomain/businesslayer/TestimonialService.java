@@ -11,4 +11,5 @@ public interface TestimonialService {
     Testimonial submitTestimonial(Testimonial testimonial);
     Testimonial approveTestimonial(String id);
     void rejectTestimonial(String id);
+    void deleteApprovedTestimonial(String id);
 }

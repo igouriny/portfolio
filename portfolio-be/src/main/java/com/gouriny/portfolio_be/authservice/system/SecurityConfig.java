@@ -64,7 +64,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         // Public endpoints (registration, login, GET endpoints, etc.)
                         .requestMatchers(HttpMethod.GET, "/api/v1/register", "/api/v1/login", "/api/v1/academics/**",
-                                "/api/v1/about/**", "/api/v1/professional/**", "/api/v1/testimonials/**").permitAll()
+                                "/api/v1/about/**", "/api/v1/professional/**", "/api/v1/testimonials/**", "/api/v1/projects/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/logout").permitAll()
                         // Endpoints restricted to ADMIN role for modifying resources
@@ -80,6 +80,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/about").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/api/v1/about").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/api/v1/contact").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/projects").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/projects/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/projects/**").hasRole("ADMIN")
                         // Any other request must be authenticated
                         .anyRequest().authenticated()
                 )

@@ -1,25 +1,31 @@
+/* portfolio-fe/src/Academic.css */
+
+/* Base font and background */
 @font-face {
-    font-family: SF Pro;
+    font-family: 'SF Pro';
     src: url(../assets/fonts/SF-Pro.ttf);
-  }
+}
   
-  body {
+body {
     font-family: SF Pro, Arial, sans-serif;
     background-color: #ebf5fb;
-  }
+}
   
-  .subtitle {
+/* Subtitle styling for both sections */
+.subtitle {
     margin-top: 2px;
     font-size: 22px;
     text-transform: uppercase;
     font-weight: 300;
-  }
+}
   
-  .break {
+/* Horizontal break */
+.break {
     margin-top: 5px;
-  }
+}
   
-  .study-heading {
+/* Styling for academic (studies) records */
+.study-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,28 +33,26 @@
     background: white;
     margin-bottom: 5px;
     border-radius: 5px;
-  }
+}
   
-  .academic-details {
-    flex-grow: 1;
-  }
-  
-  .study-title {
+.study-title {
     font-weight: bold;
-  }
+    margin-bottom: 2px;
+}
   
-  .study-subtitle {
+.study-subtitle {
     margin: 2px 0px 5px 0px;
     font-weight: normal;
-  }
+}
   
-  .study-description {
+.study-description {
     font-size: 14px;
     color: #555;
-    margin-top: 5px;
-  }
+    margin-top: 2px;  /* Reduced from 5px to 2px */
+}
   
-  .delete-button {
+/* Optional delete button styling for academic records */
+.delete-button {
     background-color: transparent;
     border: none;
     color: red;
@@ -56,26 +60,27 @@
     font-weight: bold;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
-  }
+}
   
-  .delete-button:hover {
+.delete-button:hover {
     color: darkred;
-  }
+}
   
-  .academic-form {
+/* Academic form styling */
+.academic-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
+}
   
-  .form-input, .form-textarea {
+.form-input, .form-textarea {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
-  }
+}
   
-  .submit-button {
+.submit-button {
     padding: 10px;
     border: none;
     background-color: #0D6EFD;
@@ -83,9 +88,52 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-  }
+}
   
-  .submit-button:hover {
+.submit-button:hover {
     background-color: #0056b3;
-  }
+}
   
+/* Styling for project records (similar to academic records) */
+.project-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    background: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+  
+.project-title {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+  
+.project-subtitle {
+    margin: 2px 0px 5px 0px;
+    font-weight: normal;
+    color: #333;
+}
+  
+.project-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 2px;  /* Reduced gap */
+}
+
+/* If you have multiple paragraphs with the project-description class, reduce gap further */
+.project-description + .project-description {
+    margin-top: 1px;
+}
+  
+.project-link a {
+    font-size: 14px; /* Ensure same font size as project-description */
+    color: #0D6EFD;
+    text-decoration: none;
+    font-weight: bold;
+}
+  
+.project-link a:hover {
+    text-decoration: underline;
+}

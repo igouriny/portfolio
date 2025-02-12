@@ -1,5 +1,6 @@
 const API_BASE_URL = "http://localhost:8080/api/v1";
 
+
 export const loginUser = async (username, password) => {
   try {
     const response = await fetch(`${API_BASE_URL}/login`, {
@@ -10,10 +11,18 @@ export const loginUser = async (username, password) => {
 
     if (response.ok) {
       const data = await response.json();
-      // Store the token in localStorage
+      // Store the token
       localStorage.setItem("token", data.token);
-      // Store additional user info, such as username and role
-      localStorage.setItem("user", JSON.stringify({ username: data.username, role: data.role }));
+      // Store a proper user object.
+      // Use the values returned by your backend if available,
+      // otherwise fall back to the provided username.
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ 
+          username: data.username || username, 
+          role: data.role || "USER" 
+        })
+      );
       return data;
     } else {
       const errorText = await response.text();
@@ -24,6 +33,7 @@ export const loginUser = async (username, password) => {
     throw error;
   }
 };
+
 
 
 export const logoutUser = async () => {
