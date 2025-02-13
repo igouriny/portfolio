@@ -11,7 +11,8 @@ website:
 spring:
   data:
     mongodb:
-      uri: mongodb://mongo:27017/portfolio
+      uri: mongodb+srv://igouriny:ilyassdbadmin123!@portfolio.4dznz.mongodb.net/portfolio?retryWrites=true&w=majority&appName=portfolio
+#      uri: mongodb://mongo:27017/portfolio
       auto-index-creation: true
 
 

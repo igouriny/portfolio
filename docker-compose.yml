@@ -1,4 +1,3 @@
-
 services:
   backend:
     build:
@@ -6,10 +5,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    depends_on:
-      - mongo
+    # Remove the dependency on the local mongo service
+    # depends_on:
+    #   - mongo
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/portfolio
+      SPRING_DATA_MONGODB_URI: "mongodb+srv://igouriny:ilyassdbadmin123!@portfolio.4dznz.mongodb.net/portfolio?retryWrites=true&w=majority&appName=portfolio"
+
   frontend:
     build:
       context: ./portfolio-fe
@@ -17,22 +18,22 @@ services:
     ports:
       - "3000:3000"
 
-  mongo:
-    restart: always
-    image: mongo:6.0
-    container_name: mongodb-container
-    ports:
-      - "27017:27017"
+  # Comment out or remove these if you no longer need local Mongo
+  # mongo:
+  #   restart: always
+  #   image: mongo:6.0
+  #   container_name: mongodb-container
+  #   ports:
+  #     - "27017:27017"
 
-  
-  mongo-express:
-    image: mongo-express
-    container_name: mongo_express
-    hostname: mongo_express
-    restart: always
-    ports:
-      - "8081:8081"
-    environment:
-      ME_CONFIG_MONGODB_SERVER: mongo
-      ME_CONFIG_BASICAUTH_USERNAME: root
-      ME_CONFIG_BASICAUTH_PASSWORD: root
+  # mongo-express:
+  #   image: mongo-express
+  #   container_name: mongo_express
+  #   hostname: mongo_express
+  #   restart: always
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     ME_CONFIG_MONGODB_SERVER: mongo
+  #     ME_CONFIG_BASICAUTH_USERNAME: root
+  #     ME_CONFIG_BASICAUTH_PASSWORD: root
