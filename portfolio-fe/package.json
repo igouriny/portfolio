@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.1.0",
-  "proxy": "https://portfolio-production-ca67.up.railway.app/api/v1",
+  "proxy": "https://portfolio-git-main-igourinys-projects.vercel.app",
   "type": "module",
   "scripts": {
     "start": "vite",
