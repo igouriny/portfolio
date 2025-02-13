@@ -23,9 +23,6 @@ function App() {
     const storedUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
 
-    console.log("Stored user:", storedUser);
-    console.log("Token:", token);
-
     if (storedUser) {
       // If a full user object is stored, use it.
       setUser(JSON.parse(storedUser));

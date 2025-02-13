@@ -8,7 +8,6 @@ function About() {
     useEffect(() => {
         axios.get(`https://portfolio-production-ca67.up.railway.app/api/v1/about/${aboutId}`)
             .then((response) => {
-                console.log("Fetched About Data:", response.data);
                 setAboutData(response.data);
             })
             .catch((error) => console.error("Error fetching about data:", error));

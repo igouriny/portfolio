@@ -2,6 +2,7 @@ package com.gouriny.portfolio_be.authservice.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,12 @@ import java.util.function.Function;
 public class JwtUtil {
 
     // A secret key for signing the token. In production, store this securely.
-    private final String SECRET_KEY = "yzrQSbdWoDWYVrz3kL09p+K0YRq33EmiVSDyACecEoE=";
+    @Value("${AUTH_SECRET_KEY}") // Reads from the environment
+    private String SECRET_KEY;
+
+    public String getSecretKey() {
+        return SECRET_KEY;
+    }
 
     // Extract username from token
     public String extractUsername(String token) {
