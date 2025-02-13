@@ -6,7 +6,6 @@ function About() {
     const aboutId = "1"; // Replace with actual ID or fetch dynamically
 
     useEffect(() => {
-        // axios.get(`http://localhost:8080/api/v1/about/${aboutId}`)
         axios.get(`https://portfolio-production-ca67.up.railway.app/api/v1/about/${aboutId}`)
             .then((response) => {
                 console.log("Fetched About Data:", response.data);
