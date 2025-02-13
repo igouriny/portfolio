@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080/api/v1";
+const API_BASE_URL = "https://portfolio-production-ca67.up.railway.app/api/v1";
 
 
 export const loginUser = async (username, password) => {
