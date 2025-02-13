@@ -1,6 +1,4 @@
-// portfolio-fe/src/Layout.jsx
-import React from 'react';
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import AdminDashboard from "./AdminDashboard.jsx";
 import Login from "./Login";
@@ -16,6 +14,7 @@ function Layout({ handleSectionChange, fade, renderSection, user, setUser }) {
       <div className={isLoginPage ? "login-container" : "container"}>
         {(!isAdminPage && !isLoginPage) && <Navbar setActiveSection={handleSectionChange} />}
         <Routes>
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route
             path="/adminDashboard"
             element={
@@ -24,15 +23,15 @@ function Layout({ handleSectionChange, fade, renderSection, user, setUser }) {
               </ProtectedRoute>
             }
           />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route 
-            path="*" 
+          <Route
+            path="/"
             element={
-              <main className={`body-content ${fade ? 'hidden' : ''}`}>
+              <main className={`body-content ${fade ? "hidden" : ""}`}>
                 {renderSection()}
               </main>
-            } 
+            }
           />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </div>
     </div>

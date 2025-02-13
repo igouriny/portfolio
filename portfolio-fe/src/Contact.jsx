@@ -21,7 +21,7 @@ function Contact() { // Renamed component to avoid name collision
         setStatus("Sending...");
 
         try {
-            await axios.post("http://localhost:8080/api/v1/contact", formData); // Update API call if needed
+            await axios.post("https://portfolio-production-ca67.up.railway.app/api/v1/contact", formData); // Update API call if needed
             setStatus("Email sent successfully!");
             setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
         } catch (error) {

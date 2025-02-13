@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'SF Pro';
-  src: url('.assets/fonts/SF-Pro.ttf');
+  src: url(../public/SF-Pro.ttf)
+
 }
 
 body {
