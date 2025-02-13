@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "https://portfolio-git-main-igourinys-projects.vercel.app")
 @RequestMapping("/api/v1/about")
 @RequiredArgsConstructor
 public class AboutController {
