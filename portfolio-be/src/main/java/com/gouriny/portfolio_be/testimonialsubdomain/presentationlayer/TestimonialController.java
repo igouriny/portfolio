@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/testimonials")
-@CrossOrigin(origins = "http://localhost:3000")
 public class TestimonialController {
     private final TestimonialService testimonialService;
 

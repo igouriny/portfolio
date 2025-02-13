@@ -3,7 +3,6 @@ package com.gouriny.portfolio_be.contactsubdomain;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/contact")
 public class ContactController {
