@@ -1,7 +1,7 @@
 # Common Configuration
 frontend:
 #  url: http://localhost:3000
-  url: https://portfolio-delta-nine-15.vercel.app/
+  url: https://portfolio-delta-nine-15.vercel.app
 
 backend:
   url: http://localhost:8080
