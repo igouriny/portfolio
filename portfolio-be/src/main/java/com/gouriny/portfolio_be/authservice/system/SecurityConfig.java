@@ -101,7 +101,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000",
                 "https://portfolio-delta-nine-15.vercel.app",
-                "https://portfolio-igourinys-projects.vercel.app"));
+                "https://portfolio-igourinys-projects.vercel.app",
+                "https://www.ilyassgouriny.me"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
