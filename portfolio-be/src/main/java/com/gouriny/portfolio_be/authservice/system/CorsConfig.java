@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "https://portfolio-delta-nine-15.vercel.app", "https://portfolio-delta-nine-15.vercel.app")
+                        .allowedOrigins("http://localhost:3000", "https://portfolio-delta-nine-15.vercel.app", "https://www.ilyassgouriny.me")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
