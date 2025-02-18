@@ -12,8 +12,7 @@
 }
 
 .admin-dashboard {
-    /* Keep your original 150% width on large screens */
-    width: 150%;
+    width: 150%; /* Keep your original wide look on large screens */
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
@@ -291,33 +290,40 @@
 }
 
 /* ============================= */
-/* ✅ Basic Responsive Tweaks (already in place) */
+/* ✅ Make It Responsive */
 /* ============================= */
+
+/* 
+   1) At screens below 1200px, reduce admin-dashboard width to 100%
+   2) At screens below 768px, further adjust spacing and layout 
+*/
+
+/* For mid-sized screens/tablets */
 @media (max-width: 1200px) {
+    /* Override the 150% width so it doesn't overflow */
+    .admin-dashboard {
+        width: 100%;
+    }
+    /* Stack the academic/professional columns vertically if you want */
     .admin-dashboard .records-container {
         flex-direction: column;
         gap: 30px;
     }
-    /* If you want .admin-dashboard to not exceed screen width on mid-sized devices, uncomment:
-       .admin-dashboard {
-           width: 100%;
-       }
-    */
 }
 
+/* For mobile screens */
 @media (max-width: 768px) {
-    /* Make the entire dashboard fit nicely on tablets/smaller screens */
     .admin-dashboard {
-        width: 100%; /* override the 150% on screens <768px */
         padding: 20px;
     }
-    
+
+    /* Make the heading a bit smaller on mobile */
     .admin-dashboard h1 {
-        font-size: 28px; /* slightly smaller heading on mobile */
+        font-size: 28px;
         text-align: center;
     }
 
-    /* Stack about-section and forms fully */
+    /* Ensure the about section and record containers fit full width */
     .about-section,
     .existing-records,
     .new-record-form {
@@ -326,20 +332,20 @@
         padding: 20px;
     }
 
-    /* Reduce gap in records container */
+    /* Reduce horizontal gap on smaller devices */
     .admin-dashboard .records-container {
         gap: 20px;
         padding-top: 0;
     }
 
-    /* Make each record item stack internally */
+    /* Stack each record item (li) content on mobile */
     .existing-records li {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
 
-    /* Ensure input widths fit well */
+    /* Ensure input widths fit well on mobile */
     .edit-fields input,
     .edit-fields textarea,
     .new-record-form input,
@@ -347,8 +353,8 @@
         width: 100%;
         margin-bottom: 12px;
     }
-    
-    /* Adjust button sizes if needed */
+
+    /* Slightly smaller buttons on mobile */
     .edit-button,
     .delete-button,
     .save-button,
@@ -358,8 +364,8 @@
     }
 }
 
+/* For very small screens (optional) */
 @media (max-width: 480px) {
-    /* Further refine for very small screens (phones) */
     .admin-dashboard {
         padding: 10px;
     }
