@@ -275,7 +275,7 @@
 
 .admin-dashboard .new-record-form input,
 .admin-dashboard .new-record-form textarea {
-    width: 100%;
+    width: 100%; /* Use 100% to fill the parent container */
     padding: 18px;
     border: 1px solid #bdc3c7;
     font-size: 17px;
@@ -311,9 +311,17 @@
 
 /* For mid-sized screens/tablets */
 @media (max-width: 1200px) {
-    /* Reduce the overall dashboard width */
+    /* Reduce the overall dashboard width to 80% */
     .admin-dashboard {
-        width: 80%;
+        width: 80% !important;
+    }
+    /* Ensure inner containers take 100% of the parent */
+    .about-section,
+    .records-container,
+    .existing-records,
+    .new-record-form {
+        width: 100% !important;
+        margin: 0 auto;
     }
     /* Stack the academic/professional columns vertically */
     .admin-dashboard .records-container {
@@ -326,6 +334,7 @@
 @media (max-width: 768px) {
     .admin-dashboard {
         padding: 20px;
+        width: 80% !important;
     }
 
     /* Smaller heading on mobile */
@@ -338,7 +347,7 @@
     .about-section,
     .existing-records,
     .new-record-form {
-        width: 100%;
+        width: 100% !important;
         margin: 0 auto;
         padding: 20px;
     }
