@@ -1,3 +1,9 @@
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import Navbar from "./Navbar.jsx";
+import AdminDashboard from "./AdminDashboard.jsx";
+import Login from "./Login";
+import ProtectedRoute from "./ProtectedRoute";
+
 function Layout({ handleSectionChange, fade, renderSection, user, setUser }) {
   const location = useLocation();
   const isAdminPage = location.pathname === "/adminDashboard";
@@ -5,7 +11,14 @@ function Layout({ handleSectionChange, fade, renderSection, user, setUser }) {
 
   return (
     <div className="wrapper">
-      {isAdminPage || isLoginPage ? (
+      <div className={
+          isLoginPage
+            ? "login-container"
+            : isAdminPage
+            ? "admin-container" // use a different class for admin
+            : "container"
+        }>
+        {(!isAdminPage && !isLoginPage) && <Navbar setActiveSection={handleSectionChange} />}
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route
@@ -16,24 +29,17 @@ function Layout({ handleSectionChange, fade, renderSection, user, setUser }) {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/"
+            element={
+              <main className={`body-content ${fade ? "hidden" : ""}`}>
+                {renderSection()}
+              </main>
+            }
+          />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
-      ) : (
-        <div className="container">
-          <Navbar setActiveSection={handleSectionChange} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <main className={`body-content ${fade ? "hidden" : ""}`}>
-                  {renderSection()}
-                </main>
-              }
-            />
-            <Route path="*" element={<Navigate to="/login" replace />} />
-          </Routes>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
