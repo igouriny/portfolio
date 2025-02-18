@@ -38,6 +38,12 @@
     gap: 15px;
   }
   
+  .contact-form input,
+  .contact-form textarea {
+  font-size: 16px;
+}
+
+  
   .contact-input-group {
     display: flex;
     gap: 15px;

@@ -4,12 +4,14 @@
 
 }
 
+
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* prevent horizontal scrolling */
   /* If you want the same background site-wide: */
   background-color: #ebf5fb;
+  -webkit-text-size-adjust: 100%;
 }
 
 
@@ -412,7 +414,7 @@ hr {
     font-size: 12px;
   }
   
-  .about, .academic, .contact, .professional {
+  .about, .academic, .contact, .professional, .language {
     font-size: 12px;
     padding: 10px 15px;
   }
