@@ -3,30 +3,53 @@ import profilePic from "./assets/profile.jpg";
 import github from "./assets/github.png";
 import linkedin from "./assets/linkedin.png";
 import GoogleTranslateDropdown from './googleTranslate/GoogleTranslateLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faUser, 
+  faGraduationCap, 
+  faBriefcase, 
+  faEnvelope, 
+  faComments 
+} from '@fortawesome/free-solid-svg-icons';
+
 function Navbar({ setActiveSection }) {
   return (
     <header>
-      <img className="profile" src={profilePic} alt="profile picture" />
+      <img className="profile" src={profilePic} alt="profile" />
       <ul className="main-nav">
         <li className="about" onClick={() => setActiveSection('about')}>
-          About
+          <span className="nav-icon">
+            <FontAwesomeIcon icon={faUser} />
+          </span>
+          <span className="nav-text">About</span>
         </li>
         <li className="academic" onClick={() => setActiveSection('academic')}>
-          Academic
+          <span className="nav-icon">
+            <FontAwesomeIcon icon={faGraduationCap} />
+          </span>
+          <span className="nav-text">Academic</span>
         </li>
         <li className="professional" onClick={() => setActiveSection('professional')}>
-          Professional
+          <span className="nav-icon">
+            <FontAwesomeIcon icon={faBriefcase} />
+          </span>
+          <span className="nav-text">Professional</span>
         </li>
         <li className="contact" onClick={() => setActiveSection('contact')}>
-          Contact
+          <span className="nav-icon">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </span>
+          <span className="nav-text">Contact</span>
         </li>
         <li className="about" onClick={() => setActiveSection('testimonials')}>
-          Testimonials
+          <span className="nav-icon">
+            <FontAwesomeIcon icon={faComments} />
+          </span>
+          <span className="nav-text">Testimonials</span>
         </li>
         <li className="language">
-            <GoogleTranslateDropdown />
+          <GoogleTranslateDropdown />
         </li>
-
       </ul>
       <div className="bottom-header">
         <ul className="bottom-nav">

@@ -66,19 +66,20 @@ export default function GoogleTranslateDropdown() {
         cursor: pointer;
         font-size: 14px;
         color: #85878b;
-        padding: 15px 25px;
         outline: none;
       }
       /* Styling for the dropdown menu */
       .dropdown-menu {
         position: absolute;
         top: 100%;
-        left: 0;
+        right: 0;     /* Align dropdown to the right edge */
+        left: auto;   /* Make sure we override 'left: 0' if it was set */
         z-index: 1000;
         background-color: #26292e;
         border: 1px solid #ccc;
         box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
       }
+      
       .dropdown-item {
         padding: 15px 25px;
         font-size: 14px;

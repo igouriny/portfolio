@@ -1,18 +1,18 @@
+/* ========================================
+   Global Styles
+======================================== */
+
 @font-face {
   font-family: 'SF Pro';
-  src: url(../public/SF-Pro.ttf)
-
+  src: url(../public/SF-Pro.ttf);
 }
-
 
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* prevent horizontal scrolling */
-  /* If you want the same background site-wide: */
-  background-color: #ebf5fb;
+  background-color: #ebf5fb; /* site-wide background */
 }
-
 
 body {
   font-family: 'SF Pro', Arial, sans-serif;
@@ -34,30 +34,29 @@ body {
   font-weight: 300;
 }
 
-/* Main container */
+/* ========================================
+   Main Container Layout
+======================================== */
+
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto 1fr;
-  padding-right: 15px;
-  padding-left: 15px;
-  max-width: 1170px; /* still your max width on large screens */
-  width: 100%;       /* but allow it to go smaller on phones */
+  padding: 0 15px;
+  max-width: 1170px; /* max width on large screens */
+  width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
-
 .box1 {
-  grid-column: 1 / 2; /* Takes the first column */
-  grid-row: 1 / 2;    /* Takes the first row */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
-
 .box2 {
-  grid-column: 2 / 3; /* Takes the second column */
-  grid-row: 1 / 2;    /* Takes the first row */
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 }
-
 .box3 {
   grid-area: footer;
 }
@@ -66,9 +65,12 @@ body {
   margin-left: 20px;
 }
 
-/* HEADER and NAV */
+/* ========================================
+   Header and Nav
+======================================== */
+
 header {
-  /* Desktop: header flows inline (if not within a fixed container) */
+  /* On desktop: header is inline-block (if not in a fixed container) */
   max-width: 97%;
   flex-direction: column;
   align-items: flex-start;
@@ -81,23 +83,56 @@ header {
   display: block;
 }
 
+/* The main nav container */
 .main-nav {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
   padding-left: 0;
   max-width: inherit;
   background-color: #33373d;
   list-style: none;
-  text-align: right;
   color: #85878b;
   text-transform: uppercase;
 }
 
-/* Nav Link Animations */
+/* 
+   Each nav item is a flex container with space-between:
+   icon pinned left, text pinned right.
+*/
+.main-nav li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Icon on left, text on right by default */
+  padding: 15px 25px;
+  border-bottom: 1px solid #26292e;
+  font-size: 14px;
+}
+
+/* Override the .language item so it stays fully pinned to the right
+   (no icon on left side).
+*/
+.main-nav li.language {
+  justify-content: flex-end; /* override space-between */
+}
+
+/* If your JSX is something like:
+     <li className="about">
+       <span className="nav-icon">...icon...</span>
+       <span className="nav-text">About</span>
+     </li>
+   Then these classes help with spacing.
+*/
+.nav-icon {
+  margin-left: 0; /* icon at left edge */
+}
+.nav-text {
+  text-align: right; /* pinned right within the flex space */
+}
+
+/* Nav Link Animations for .about, .academic, .contact, .professional */
 .about, .academic, .contact, .professional {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1px rgba(0,0,0,0);
   position: relative;
   -webkit-transition-property: color;
   transition-property: color;
@@ -109,10 +144,7 @@ header {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: #0D6EFD;
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
@@ -126,30 +158,31 @@ header {
   transition-timing-function: ease-out;
 }
 
-.about:hover, .about:focus, .about:active, 
-.academic:hover, .academic:focus, .academic:active, 
-.contact:hover, .contact:focus, .contact:active, 
-.professional:hover, .professional:focus, .professional:active {
+.about:hover, .academic:hover, .contact:hover, .professional:hover,
+.about:focus, .academic:focus, .contact:focus, .professional:focus,
+.about:active, .academic:active, .contact:active, .professional:active {
   color: white;
 }
 
-.about:hover:before, .about:focus:before, .about:active:before, 
-.academic:hover:before, .academic:focus:before, .academic:active:before, 
-.contact:hover:before, .contact:focus:before, .contact:active:before, 
-.professional:hover:before, .professional:focus:before, .professional:active:before {
+.about:hover:before, .academic:hover:before, .contact:hover:before, .professional:hover:before,
+.about:focus:before, .academic:focus:before, .contact:focus:before, .professional:focus:before,
+.about:active:before, .academic:active:before, .contact:active:before, .professional:active:before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
+/* Additional content styling */
 .about, .academic, .contact, .professional {
   padding: 15px 25px;
   border-bottom: 1px solid #26292e;
-  font-size: 14px;
 }
 
-/* CONTENT STYLING */
+/* ========================================
+   Content Styling
+======================================== */
+
 .body {
   text-align: left;
   width: 75%;
@@ -163,7 +196,7 @@ header {
   margin-bottom: 80px;
 }
 
-/* Footer in Header */
+/* Footer in Header (bottom header nav) */
 .bottom-header {
   background-color: white;
   max-width: inherit;
@@ -178,7 +211,7 @@ header {
 .bottom-nav-list {
   display: inline-block;
   padding-top: 20px;
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
 }
 
 .github {
@@ -210,7 +243,6 @@ hr {
   text-align: center;
 }
 
-
 .right-about {
   text-align: center;
 }
@@ -218,15 +250,13 @@ hr {
 .sub-content {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Optional: space between the stacked items */
+  gap: 20px;
 }
-
 
 .body-content {
   transition: opacity 0.1s ease;
   opacity: 1;
 }
-
 .body-content.hidden {
   opacity: 0;
 }
@@ -255,7 +285,6 @@ hr {
   margin-left: 10px;
   transition: color 0.2s ease-in-out;
 }
-
 .delete-button:hover {
   color: darkred;
 }
@@ -284,11 +313,9 @@ hr {
   text-decoration: none;
   transition: background 0.3s ease;
 }
-
 .cv-button:hover {
   background-color: #2c2c2c;
 }
-
 .cv-button svg {
   font-size: 16px;
 }
@@ -297,19 +324,16 @@ hr {
    Responsive Styles
 ======================================== */
 
-/* For screens up to 1170px wide */
+/* Screens up to 1170px wide */
 @media (max-width: 1170px) {
   .container {
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
   }
 }
 
-/* For tablets and smaller devices (up to 768px wide) */
+/* Tablets and smaller devices (up to 768px wide) */
 @media (max-width: 768px) {
-  /* Convert header into a full–width flex container 
-     and preserve the natural (DOM) order: picture, nav items, footer */
   header {
     position: static;
     background-color: white;
@@ -323,7 +347,6 @@ hr {
     margin: 0 auto;
   }
   
-  /* Main nav styling (remains in DOM order with its animations) */
   .main-nav {
     position: static;
     width: 100%;
@@ -334,8 +357,6 @@ hr {
     margin: 0 auto;
   }
   
-  /* Profile image: remove fixed height so width and height scale together.
-     object-fit: contain ensures the whole image is visible. */
   header .profile {
     width: 100%;
     max-width: 1170px;
@@ -344,13 +365,10 @@ hr {
     margin: 0 auto;
   }
   
-  /* Change the container layout from two columns to one column,
-     placing the header (box1) above the main content (box2)
-     and add a gap between them */
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    row-gap: 20px; /* Added gap between navbar and body */
+    row-gap: 20px;
     height: auto;
     width: 100%;
     max-width: 1170px;
@@ -362,13 +380,11 @@ hr {
     grid-column: 1;
     grid-row: 1;
   }
-  
   .box2 {
     grid-column: 1;
     grid-row: 2;
   }
   
-  /* Make the main content (body) the same width as the header (and navbar) */
   .body {
     width: 100%;
     max-width: 1170px;
@@ -398,7 +414,7 @@ hr {
   }
 }
 
-/* For small mobile devices (up to 480px wide) */
+/* Small mobile devices (up to 480px wide) */
 @media (max-width: 480px) {
   .title {
     font-size: 24px;
@@ -419,13 +435,15 @@ hr {
   }
 }
 
-/* portfolio-fe/src/App.css */
+/* ========================================
+   App-Specific (App.css)
+======================================== */
+
 .app-wrapper {
   position: relative;
   min-height: 100vh;
 }
 
-/* Position the user info at the top right */
 .user-info {
   position: absolute;
   top: 10px;
@@ -433,32 +451,24 @@ hr {
   font-size: 16px;
   font-weight: bold;
   color: #333;
-  background: rgba(255, 255, 255, 0.8); /* optional: add a background for readability */
+  background: rgba(255, 255, 255, 0.8);
   padding: 5px 10px;
   border-radius: 4px;
-  z-index: 1000; /* ensure it sits above other content */
+  z-index: 1000;
 }
 
-/* portfolio-fe/src/App.css */
-.app-wrapper {
-  position: relative;
-  min-height: 100vh;
-}
-
-/* Container for the top-right area */
 .top-right {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-/* Container for the user info and logout button, arranged vertically */
 .user-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end; /* right-align text and button */
   gap: 5px;
-  background: rgba(255, 255, 255, 0.8); /* optional background for clarity */
+  background: rgba(255, 255, 255, 0.8);
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 16px;
@@ -489,4 +499,3 @@ hr {
   font-weight: bold;
   color: #333;
 }
-
