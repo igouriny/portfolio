@@ -1,17 +1,11 @@
 /* Contact.css */
 
-/* Remove or comment out the old .contact-body rules
-   since you're no longer using .contact-body */
-   
-/* .contact-body {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-    background: white;
-} */
+/* 
+  We’re no longer using a separate .contact-body; instead, the Contact page
+  is wrapped in the global .body and .content containers for consistent layout.
+*/
 
-/* Contact Form Content (optional) */
+/* Contact Form Content */
 .contact-content {
     text-align: center;
   }
@@ -38,25 +32,30 @@
     gap: 15px;
   }
   
-  .contact-form input,
-  .contact-form textarea {
-  font-size: 16px;
-}
-
-  
+  /* Input Group - for two side-by-side inputs */
   .contact-input-group {
     display: flex;
+    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
     gap: 15px;
   }
   
+  /* Each input in the group should take roughly half the space */
   .contact-input-group input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #bdc3c7;
-    border-radius: 6px;
-    font-size: 16px;
+    flex: 1 1 calc(50% - 15px);
+    min-width: 0;
   }
   
+  /* For very small screens, stack the inputs vertically */
+  @media (max-width: 480px) {
+    .contact-input-group {
+      flex-direction: column;
+    }
+    .contact-input-group input {
+      flex: 1 1 100%;
+    }
+  }
+  
+  /* General input and textarea styling */
   .contact-form input,
   .contact-form textarea {
     padding: 14px;
@@ -66,6 +65,12 @@
     background-color: #f9f9f9;
   }
   
+  /* Ensure placeholders also appear at 16px */
+  ::placeholder {
+    font-size: 16px;
+  }
+  
+  /* Textarea specifics */
   .contact-form textarea {
     resize: vertical;
     min-height: 120px;
@@ -93,5 +98,18 @@
     margin-top: 10px;
     font-size: 16px;
     color: #2c3e50;
+  }
+  
+  /* 
+    Additional responsive adjustments:
+    Ensure the container (.body) is full width on smaller screens.
+    (This rule may be defined in your global CSS, but it’s added here if needed.)
+  */
+  @media (max-width: 768px) {
+    .body {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
   }
   
