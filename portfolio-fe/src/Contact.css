@@ -4,15 +4,16 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 40px;
-    background: white;
-    /* border-radius: 8px; */
-    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
-}
-
-/* Contact Form Content */
-.contact-content {
+    /* background: white;  <-- remove or comment out
+       so it inherits the same background as other pages */
+  }
+  
+  /* Keep any other styling you want, just avoid re-setting
+     the overall layout or background. */
+  .contact-content {
     text-align: center;
-}
+  }
+  
 
 /* Title Styling */
 .contact-subtitle {

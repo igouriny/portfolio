@@ -4,6 +4,15 @@
 
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scrolling */
+  /* If you want the same background site-wide: */
+  background-color: #ebf5fb;
+}
+
+
 body {
   font-family: 'SF Pro', Arial, sans-serif;
   background-color: #ebf5fb;
@@ -27,15 +36,16 @@ body {
 /* Main container */
 .container {
   display: grid;
-  height: 100vh;
-  width: 1170px;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto 1fr;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 1170px; /* still your max width on large screens */
+  width: 100%;       /* but allow it to go smaller on phones */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
+
 
 .box1 {
   grid-column: 1 / 2; /* Takes the first column */
