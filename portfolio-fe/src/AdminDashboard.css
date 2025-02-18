@@ -35,7 +35,7 @@
 /* ✅ About Section Styling */
 /* ============================= */
 .admin-dashboard .about-section {
-    width: 95%;
+    width: 80%;
     background: white;
     padding: 30px;
     border-radius: 10px;
@@ -313,6 +313,9 @@
 @media (max-width: 1200px) {
     /* Reduce the overall dashboard width to 80% */
 
+    .admin-dashboard{
+        width: 80% !important;
+    }
     /* Ensure inner containers take 100% of the parent */
     .about-section,
     .records-container,
@@ -332,7 +335,6 @@
 @media (max-width: 768px) {
     .admin-dashboard {
         padding: 20px;
-        /* width: 80% !important; */
     }
 
     /* Smaller heading on mobile */
