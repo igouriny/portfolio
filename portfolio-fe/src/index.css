@@ -94,38 +94,25 @@ header {
   text-transform: uppercase;
 }
 
-/* 
-   Each nav item is a flex container with space-between:
-   icon pinned left, text pinned right.
-*/
+/* Desktop items: icon left, text right */
 .main-nav li {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Icon on left, text on right by default */
+  justify-content: space-between;
   padding: 15px 25px;
   border-bottom: 1px solid #26292e;
   font-size: 14px;
 }
 
-/* Override the .language item so it stays fully pinned to the right
-   (no icon on left side).
-*/
 .main-nav li.language {
-  justify-content: flex-end; /* override space-between */
+  justify-content: flex-end;
 }
 
-/* If your JSX is something like:
-     <li className="about">
-       <span className="nav-icon">...icon...</span>
-       <span className="nav-text">About</span>
-     </li>
-   Then these classes help with spacing.
-*/
 .nav-icon {
-  margin-left: 0; /* icon at left edge */
+  margin-left: 0;
 }
 .nav-text {
-  text-align: right; /* pinned right within the flex space */
+  text-align: right;
 }
 
 /* Nav Link Animations for .about, .academic, .contact, .professional */
@@ -173,7 +160,7 @@ header {
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
-/* Additional content styling */
+/* Additional styling for these items */
 .about, .academic, .contact, .professional {
   padding: 15px 25px;
   border-bottom: 1px solid #26292e;
@@ -196,7 +183,10 @@ header {
   margin-bottom: 80px;
 }
 
-/* Footer in Header (bottom header nav) */
+/* ========================================
+   Footer in Header (Bottom Nav)
+======================================== */
+
 .bottom-header {
   background-color: white;
   max-width: inherit;
@@ -232,6 +222,10 @@ hr {
   border: 0;
   border: 1px solid #eee;
 }
+
+/* ========================================
+   Other Content Styling
+======================================== */
 
 .right-about .left-about {
   flex: 1;
@@ -414,8 +408,65 @@ hr {
   }
 }
 
-/* Small mobile devices (up to 480px wide) */
+/* 
+   Small mobile devices (up to 480px wide)
+   => A row of icons with vertical separators,
+      the last icon gets no right border,
+      language pinned to bottom row
+*/
 @media (max-width: 480px) {
+  /* Make the nav a flex row, wrapping if needed */
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  /* Hide text on phone */
+  .nav-text {
+    display: none;
+  }
+
+  /* Each item: minimal padding, no bottom border */
+  .main-nav li {
+    border-bottom: none;
+    padding: 10px 8px;
+    justify-content: center;
+    position: relative;
+    order: 0; /* default order for icons */
+  }
+
+  /* 
+    Add vertical separators for all non-language items,
+    then remove it from the last non-language item so it has no border.
+  */
+  .main-nav li:not(.language) {
+    /* border-right: 1px solid #555;  */
+    margin-right: 8px; 
+    padding-top: 20px;
+    padding-right: 8px;
+  }
+  /* The last non-language item: no right border, no extra margin/padding */
+  .main-nav li:not(.language):last-of-type {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  /* Language item forced to bottom row */
+  .main-nav li.language {
+    flex-basis: 100%;
+    justify-content: center;
+    border-right: none;
+    margin-top: 10px;
+    border-top: 1px solid #555;
+    order: 99; /* ensures it appears last */
+  }
+
   .title {
     font-size: 24px;
   }
@@ -428,10 +479,10 @@ hr {
     padding: 8px 12px;
     font-size: 12px;
   }
-  
-  .about, .academic, .contact, .professional {
-    font-size: 12px;
-    padding: 10px 15px;
+
+  /* Slightly bigger icons on phone */
+  .nav-icon svg {
+    font-size: 20px;
   }
 }
 
