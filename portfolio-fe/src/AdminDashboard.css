@@ -1,24 +1,25 @@
 /* ============================= */
-/* ✅ General Container Styling  */
+/* ✅ Dashboard General Styles */
 /* ============================= */
 .dashboard-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 1200px;
     padding: 20px;
-    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .admin-dashboard {
-    width: 100%;
+    /* Keep your original 150% width on large screens */
+    width: 150%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
     display: flex;
     flex-direction: column;
     background-color: #f8f9fa;
-    box-sizing: border-box;
 }
 
 /* ✅ Dashboard Title */
@@ -29,23 +30,21 @@
     margin-bottom: 30px;
     border-bottom: 4px solid #3498db;
     padding-bottom: 12px;
-    text-align: center;
 }
 
 /* ============================= */
-/* ✅ About Section Styling      */
+/* ✅ About Section Styling */
 /* ============================= */
 .admin-dashboard .about-section {
-    width: 100%;
+    width: 95%;
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
-    box-sizing: border-box;
 }
 
-/* About Display */
+/* ✅ About Display */
 .admin-dashboard .about-display h3 {
     font-size: 28px;
     font-weight: 700;
@@ -60,16 +59,14 @@
     color: #2c3e50;
 }
 
-/* About Edit Form */
+/* ✅ About Edit Form */
 .admin-dashboard .edit-about-fields {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-/* ============================= */
-/* ✅ Form Input Fields          */
-/* ============================= */
+/* ✅ Form Input Fields */
 .admin-dashboard input,
 .admin-dashboard textarea {
     width: 100%;
@@ -79,9 +76,9 @@
     border-radius: 6px;
     background-color: #f9f9f9;
     transition: border 0.3s ease-in-out, background 0.3s ease-in-out;
-    box-sizing: border-box;
 }
 
+/* ✅ Input Focus Effect */
 .admin-dashboard input:focus,
 .admin-dashboard textarea:focus {
     outline: none;
@@ -90,6 +87,7 @@
     box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.3);
 }
 
+/* ✅ Spacing Between Input Fields */
 .admin-dashboard .edit-about-fields input,
 .admin-dashboard .edit-about-fields textarea,
 .admin-dashboard .new-record-form input,
@@ -97,13 +95,14 @@
     margin-bottom: 15px;
 }
 
+/* ✅ Textarea Specific Styling */
 .admin-dashboard textarea {
     resize: vertical;
     min-height: 120px;
 }
 
 /* ============================= */
-/* ✅ Button Styling             */
+/* ✅ Save Button Styling */
 /* ============================= */
 .admin-dashboard .save-button {
     background-color: #2ecc71;
@@ -121,6 +120,9 @@
     background-color: #27ae60;
 }
 
+/* ============================= */
+/* ✅ Cancel Button Styling */
+/* ============================= */
 .admin-dashboard .cancel-button {
     background-color: #95a5a6;
     color: white;
@@ -139,28 +141,27 @@
 }
 
 /* ============================= */
-/* ✅ Records Containers         */
+/* ✅ Academic & Professional Records Styling */
 /* ============================= */
 .admin-dashboard .records-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
-    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+    padding-top: 20px;
 }
 
-.admin-dashboard .existing-records,
-.admin-dashboard .new-record-form {
-    flex: 1 1 300px;
+.admin-dashboard .existing-records {
+    flex: 1;
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
 }
 
-/* Existing Records List */
 .admin-dashboard .existing-records ul {
     list-style: none;
     padding: 0;
@@ -181,7 +182,7 @@
 }
 
 /* ============================= */
-/* ✅ Edit Form Styling          */
+/* ✅ Edit Form Styling */
 /* ============================= */
 .admin-dashboard .edit-fields {
     display: flex;
@@ -198,16 +199,10 @@
     border-radius: 8px;
     margin-bottom: 18px;
     background-color: #f9f9f9;
-    box-sizing: border-box;
-}
-
-.admin-dashboard .edit-fields textarea {
-    resize: vertical;
-    min-height: 140px;
 }
 
 /* ============================= */
-/* ✅ Action Button Styling      */
+/* ✅ Button Styling */
 /* ============================= */
 .admin-dashboard .action-buttons {
     display: flex;
@@ -247,8 +242,16 @@
 }
 
 /* ============================= */
-/* ✅ New Record Forms Styling   */
+/* ✅ New Academic & Professional Record Forms */
 /* ============================= */
+.admin-dashboard .new-record-form {
+    flex: 1;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .admin-dashboard .new-record-form form {
     display: flex;
     flex-direction: column;
@@ -264,7 +267,6 @@
     border-radius: 8px;
     margin-bottom: 18px;
     background-color: #f9f9f9;
-    box-sizing: border-box;
 }
 
 .admin-dashboard .new-record-form textarea {
@@ -289,22 +291,86 @@
 }
 
 /* ============================= */
-/* ✅ Responsive Design          */
+/* ✅ Basic Responsive Tweaks (already in place) */
 /* ============================= */
 @media (max-width: 1200px) {
     .admin-dashboard .records-container {
         flex-direction: column;
         gap: 30px;
     }
+    /* If you want .admin-dashboard to not exceed screen width on mid-sized devices, uncomment:
+       .admin-dashboard {
+           width: 100%;
+       }
+    */
 }
 
 @media (max-width: 768px) {
+    /* Make the entire dashboard fit nicely on tablets/smaller screens */
     .admin-dashboard {
+        width: 100%; /* override the 150% on screens <768px */
         padding: 20px;
     }
-    .admin-dashboard .new-record-form,
-    .admin-dashboard .existing-records,
-    .admin-dashboard .about-section {
+    
+    .admin-dashboard h1 {
+        font-size: 28px; /* slightly smaller heading on mobile */
+        text-align: center;
+    }
+
+    /* Stack about-section and forms fully */
+    .about-section,
+    .existing-records,
+    .new-record-form {
+        width: 100%;
+        margin: 0 auto;
         padding: 20px;
+    }
+
+    /* Reduce gap in records container */
+    .admin-dashboard .records-container {
+        gap: 20px;
+        padding-top: 0;
+    }
+
+    /* Make each record item stack internally */
+    .existing-records li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* Ensure input widths fit well */
+    .edit-fields input,
+    .edit-fields textarea,
+    .new-record-form input,
+    .new-record-form textarea {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    
+    /* Adjust button sizes if needed */
+    .edit-button,
+    .delete-button,
+    .save-button,
+    .cancel-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further refine for very small screens (phones) */
+    .admin-dashboard {
+        padding: 10px;
+    }
+    .admin-dashboard h1 {
+        font-size: 24px;
+    }
+    .existing-records li {
+        font-size: 16px;
+    }
+    .new-record-form button {
+        font-size: 16px;
+        padding: 14px;
     }
 }
