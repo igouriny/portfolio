@@ -6,10 +6,10 @@ function DownloadCV() {
   return (
     <div className="cv-container">
       <div className="cv-buttons">
-        <a href="/Ilyass_Gouriny_CV.pdf" download="Ilyass_Gouriny_CV_EN.pdf" className="cv-button">
+        <a href="/Ilyass_Gouriny_CV_EN.pdf" download="Ilyass_Gouriny_CV_EN.pdf" className="cv-button">
           <FaDownload /> Download my English CV
         </a>
-        <a href="/Ilyass_Gouriny_CV_French.pdf" download="Ilyass_Gouriny_CV_French.pdf" className="cv-button">
+        <a href="/Ilyass_Gouriny_CV_FR.pdf" download="Ilyass_Gouriny_CV_FR.pdf" className="cv-button">
           <FaDownload /> Télécharger mon CV en Français
         </a>
       </div>
