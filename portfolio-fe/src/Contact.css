@@ -1,72 +1,72 @@
-/* General Contact Form Styling */
-.contact-body {
+/* Contact.css */
+
+/* Remove or comment out the old .contact-body rules
+   since you're no longer using .contact-body */
+   
+/* .contact-body {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 40px;
-    /* background: white;  <-- remove or comment out
-       so it inherits the same background as other pages */
-  }
-  
-  /* Keep any other styling you want, just avoid re-setting
-     the overall layout or background. */
-  .contact-content {
+    background: white;
+} */
+
+/* Contact Form Content (optional) */
+.contact-content {
     text-align: center;
   }
   
-
-/* Title Styling */
-.contact-subtitle {
+  /* Title Styling */
+  .contact-subtitle {
     font-size: 24px;
     font-weight: bold;
     color: #2c3e50;
-}
-
-.contact-break {
+  }
+  
+  .contact-break {
     border: none;
     height: 3px;
     background: #0d6efd;
     width: 50px;
     margin: 10px auto;
-}
-
-/* Form Fields */
-.contact-form {
+  }
+  
+  /* Form Fields */
+  .contact-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-.contact-input-group {
+  }
+  
+  .contact-input-group {
     display: flex;
     gap: 15px;
-}
-
-.contact-input-group input {
+  }
+  
+  .contact-input-group input {
     flex: 1;
     padding: 12px;
     border: 1px solid #bdc3c7;
     border-radius: 6px;
     font-size: 16px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    /* width: 100%; */
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
     padding: 14px;
     border: 1px solid #bdc3c7;
     border-radius: 6px;
     font-size: 16px;
     background-color: #f9f9f9;
-}
-
-.contact-form textarea {
+  }
+  
+  .contact-form textarea {
     resize: vertical;
     min-height: 120px;
-}
-
-/* Submit Button */
-.contact-send-button {
+  }
+  
+  /* Submit Button */
+  .contact-send-button {
     background-color: #0d6efd;
     color: white;
     border: none;
@@ -76,37 +76,16 @@
     font-weight: bold;
     border-radius: 6px;
     transition: background 0.3s ease;
-}
-
-.contact-send-button:hover {
+  }
+  
+  .contact-send-button:hover {
     background-color: #c9302c;
-}
-
-/* Status Message */
-.contact-status-message {
+  }
+  
+  /* Status Message */
+  .contact-status-message {
     margin-top: 10px;
     font-size: 16px;
     color: #2c3e50;
-}
-
-/* ========================================
-   Responsive Styles
-======================================== */
-
-/* For tablets and smaller devices (up to 768px wide) */
-@media (max-width: 768px) {
-    .contact-body {
-        width: 100%;
-        max-width: 1170px;  /* Same as the navbar/container width in responsive design */
-        margin: 0 auto;
-        padding: 40px;
-        box-sizing: border-box;
-    }
-}
-
-/* For small mobile devices (up to 480px wide) */
-@media (max-width: 480px) {
-    .contact-body {
-        padding: 20px;  /* Reduce padding on very small screens */
-    }
-}
+  }
+  
