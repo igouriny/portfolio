@@ -1,24 +1,24 @@
 /* ============================= */
-/* ✅ Dashboard General Styles */
+/* ✅ General Container Styling  */
 /* ============================= */
 .dashboard-container {
     width: 100%;
-    max-width: 1200px;
-    padding: 20px;
-    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .admin-dashboard {
-    width: 150%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
     display: flex;
     flex-direction: column;
     background-color: #f8f9fa;
+    box-sizing: border-box;
 }
 
 /* ✅ Dashboard Title */
@@ -29,21 +29,23 @@
     margin-bottom: 30px;
     border-bottom: 4px solid #3498db;
     padding-bottom: 12px;
+    text-align: center;
 }
 
 /* ============================= */
-/* ✅ About Section Styling */
+/* ✅ About Section Styling      */
 /* ============================= */
 .admin-dashboard .about-section {
-    width: 95%;
+    width: 100%;
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
+    box-sizing: border-box;
 }
 
-/* ✅ About Display */
+/* About Display */
 .admin-dashboard .about-display h3 {
     font-size: 28px;
     font-weight: 700;
@@ -58,14 +60,16 @@
     color: #2c3e50;
 }
 
-/* ✅ About Edit Form */
+/* About Edit Form */
 .admin-dashboard .edit-about-fields {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-/* ✅ Form Input Fields */
+/* ============================= */
+/* ✅ Form Input Fields          */
+/* ============================= */
 .admin-dashboard input,
 .admin-dashboard textarea {
     width: 100%;
@@ -75,9 +79,9 @@
     border-radius: 6px;
     background-color: #f9f9f9;
     transition: border 0.3s ease-in-out, background 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
-/* ✅ Input Focus Effect */
 .admin-dashboard input:focus,
 .admin-dashboard textarea:focus {
     outline: none;
@@ -86,7 +90,6 @@
     box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.3);
 }
 
-/* ✅ Spacing Between Input Fields */
 .admin-dashboard .edit-about-fields input,
 .admin-dashboard .edit-about-fields textarea,
 .admin-dashboard .new-record-form input,
@@ -94,14 +97,13 @@
     margin-bottom: 15px;
 }
 
-/* ✅ Textarea Specific Styling */
 .admin-dashboard textarea {
     resize: vertical;
     min-height: 120px;
 }
 
 /* ============================= */
-/* ✅ Save Button Styling */
+/* ✅ Button Styling             */
 /* ============================= */
 .admin-dashboard .save-button {
     background-color: #2ecc71;
@@ -119,9 +121,6 @@
     background-color: #27ae60;
 }
 
-/* ============================= */
-/* ✅ Cancel Button Styling */
-/* ============================= */
 .admin-dashboard .cancel-button {
     background-color: #95a5a6;
     color: white;
@@ -140,27 +139,28 @@
 }
 
 /* ============================= */
-/* ✅ Academic & Professional Records Styling */
+/* ✅ Records Containers         */
 /* ============================= */
 .admin-dashboard .records-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 50px;
-    padding-top: 20px;
+    box-sizing: border-box;
 }
 
-.admin-dashboard .existing-records {
-    flex: 1;
+.admin-dashboard .existing-records,
+.admin-dashboard .new-record-form {
+    flex: 1 1 300px;
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
+/* Existing Records List */
 .admin-dashboard .existing-records ul {
     list-style: none;
     padding: 0;
@@ -181,7 +181,7 @@
 }
 
 /* ============================= */
-/* ✅ Edit Form Styling */
+/* ✅ Edit Form Styling          */
 /* ============================= */
 .admin-dashboard .edit-fields {
     display: flex;
@@ -198,6 +198,7 @@
     border-radius: 8px;
     margin-bottom: 18px;
     background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
 .admin-dashboard .edit-fields textarea {
@@ -206,7 +207,7 @@
 }
 
 /* ============================= */
-/* ✅ Button Styling */
+/* ✅ Action Button Styling      */
 /* ============================= */
 .admin-dashboard .action-buttons {
     display: flex;
@@ -246,16 +247,8 @@
 }
 
 /* ============================= */
-/* ✅ New Academic & Professional Record Forms */
+/* ✅ New Record Forms Styling   */
 /* ============================= */
-.admin-dashboard .new-record-form {
-    flex: 1;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 .admin-dashboard .new-record-form form {
     display: flex;
     flex-direction: column;
@@ -271,6 +264,7 @@
     border-radius: 8px;
     margin-bottom: 18px;
     background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
 .admin-dashboard .new-record-form textarea {
@@ -295,7 +289,7 @@
 }
 
 /* ============================= */
-/* ✅ Responsive Design */
+/* ✅ Responsive Design          */
 /* ============================= */
 @media (max-width: 1200px) {
     .admin-dashboard .records-container {
@@ -306,6 +300,11 @@
 
 @media (max-width: 768px) {
     .admin-dashboard {
+        padding: 20px;
+    }
+    .admin-dashboard .new-record-form,
+    .admin-dashboard .existing-records,
+    .admin-dashboard .about-section {
         padding: 20px;
     }
 }
