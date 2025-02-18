@@ -347,7 +347,7 @@
     .about-section,
     .existing-records,
     .new-record-form {
-        width: 100% !important;
+        width: 80% !important;
         margin: 0 auto;
         padding: 20px;
     }
