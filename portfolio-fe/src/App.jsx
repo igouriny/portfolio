@@ -79,9 +79,6 @@ function App() {
         {user && (
           <div className="top-right">
             <div className="user-container">
-              <span>
-                Welcome, <strong>{user.username}</strong>
-              </span>
               <Logout setUser={setUser} />
             </div>
           </div>

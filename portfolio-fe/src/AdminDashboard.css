@@ -12,7 +12,7 @@
 }
 
 .admin-dashboard {
-    width: 150%; /* Keep your original wide look on large screens */
+    width: 150%; /* Original wide look for large screens */
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
@@ -259,7 +259,7 @@
 
 .admin-dashboard .new-record-form input,
 .admin-dashboard .new-record-form textarea {
-    width: 95%;
+    width: 100%;  /* Changed from 95% to 100% for full responsiveness */
     padding: 18px;
     border: 1px solid #bdc3c7;
     font-size: 17px;
@@ -293,18 +293,13 @@
 /* ✅ Make It Responsive */
 /* ============================= */
 
-/* 
-   1) At screens below 1200px, reduce admin-dashboard width to 100%
-   2) At screens below 768px, further adjust spacing and layout 
-*/
-
 /* For mid-sized screens/tablets */
 @media (max-width: 1200px) {
-    /* Override the 150% width so it doesn't overflow */
+    /* Reduce the overall dashboard width */
     .admin-dashboard {
-        width: 100%;
+        width: 80%;
     }
-    /* Stack the academic/professional columns vertically if you want */
+    /* Stack the academic/professional columns vertically */
     .admin-dashboard .records-container {
         flex-direction: column;
         gap: 30px;
@@ -317,13 +312,13 @@
         padding: 20px;
     }
 
-    /* Make the heading a bit smaller on mobile */
+    /* Smaller heading on mobile */
     .admin-dashboard h1 {
         font-size: 28px;
         text-align: center;
     }
 
-    /* Ensure the about section and record containers fit full width */
+    /* Ensure sections and forms occupy full width */
     .about-section,
     .existing-records,
     .new-record-form {
@@ -332,20 +327,20 @@
         padding: 20px;
     }
 
-    /* Reduce horizontal gap on smaller devices */
+    /* Reduce gap for records container */
     .admin-dashboard .records-container {
         gap: 20px;
         padding-top: 0;
     }
 
-    /* Stack each record item (li) content on mobile */
+    /* Stack each record item vertically */
     .existing-records li {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
 
-    /* Ensure input widths fit well on mobile */
+    /* Inputs and textareas occupy full width on mobile */
     .edit-fields input,
     .edit-fields textarea,
     .new-record-form input,
@@ -354,7 +349,7 @@
         margin-bottom: 12px;
     }
 
-    /* Slightly smaller buttons on mobile */
+    /* Smaller buttons on mobile */
     .edit-button,
     .delete-button,
     .save-button,
