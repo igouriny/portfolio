@@ -234,11 +234,11 @@ hr {
 }
 
 .left-about {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .right-about {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .sub-content {
@@ -398,7 +398,7 @@ hr {
   
   .right-about,
   .left-about {
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
   }
   
